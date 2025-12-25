@@ -56,7 +56,7 @@ const updateExchangeRate = async () => {
     let amtVal = amountInput.value;
     if (amtVal === "" || amtVal < 0) {
         amtVal = 1;
-        amountInput.value = "1.00";
+        amountInput.value = " ";
     }
 
     msg.innerText = "Updating...";
