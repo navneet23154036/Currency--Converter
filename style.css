@@ -238,3 +238,18 @@ label {
         font-size: 1.2rem;  
     }
 }  
+.amount-field input {
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .currency-symbol {
+    font-size: 1.1rem;
+    left: 0.9rem;
+  }
+
+  .amount-field input {
+    font-size: 1.2rem;
+    padding-left: 2.4rem;
+  }
+}
