@@ -1,115 +1,240 @@
-  * {
+ 
+  :root {
+    --primary-color: #0052ff;  
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --card-bg: #ffffff;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--bg-gradient);
+    color: var(--text-dark);
 }
 
- 
-.container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 1rem;
-    width: 360px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+.converter-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 480px;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.container h2 {
+header {
     text-align: center;
-    margin-bottom: 1.5rem;
-    color: #333;
+    margin-bottom: 2rem;
 }
 
- 
-.amount p {
+header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
     margin-bottom: 0.5rem;
-    font-weight: 600;
 }
 
-.amount input {
+header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.input-section { margin-bottom: 1.5rem; }
+
+.amount-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.amount-field input {
     width: 100%;
-    padding: 0.6rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
+    padding: 1rem 1rem 1rem 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
     outline: none;
+    transition: border-color 0.2s;
 }
 
- 
-.dropdown {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1.5rem 0;
-}
+.amount-field input:focus { border-color: var(--primary-color); }
 
-.dropdown p {
-    margin-bottom: 0.4rem;
+.currency-symbol {
+    position: absolute;
+    left: 1rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    color: var(--text-muted);
 }
 
-.select-container {
+.conversion-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.select-group { flex: 1; }
+
+.custom-select {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: #f8fafc;
+}
+  
+.custom-select img {
+  width: 32px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #f1f1f1;
 }
 
-.select-container img {
-    width: 32px;
-    margin-right: 0.5rem;
-}
-
-.select-container select {
+.custom-select select {
     border: none;
-    outline: none;
-    font-size: 1rem;
-    cursor: pointer;
     background: none;
-}
-
- 
-.dropdown i {
-    font-size: 1.3rem;
-    margin-top: 1.5rem;
-    color: #4facfe;
-}
-
- 
-.msg {
-    text-align: center;
-    margin: 1rem 0;
-    font-weight: 600;
-    color: #444;
-}
-
- 
-button {
-    width: 100%;
-    padding: 0.7rem;
-    border-radius: 0.6rem;
-    border: none;
-    background: #4facfe;
-    color: #fff;
     font-size: 1rem;
     font-weight: 600;
+    width: 100%;
+    outline: none;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-button:hover {
-    background: #2f8cff;
+.swap-container {
+    padding-bottom: 5px;
 }
-    
-    
+
+.swap-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    background: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.swap-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.result-display {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f1f5f9;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.rate-info {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.msg {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.convert-button {
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.convert-button:hover { opacity: 0.9; }
+.convert-button:active { transform: scale(0.98); }
+
  
+@media (max-width: 480px) {
+    .converter-card { padding: 1.5rem; border-radius: 0; min-height: 100vh; max-width: 100%; }
+    .conversion-controls { flex-direction: column; }
+    .swap-btn { transform: rotate(90deg); }
+    .swap-btn:hover { transform: rotate(90deg) scale(1.1); }
+}
+ 
+@media (max-width: 480px) {
+    body {
+        padding: 10px; 
+    }
 
+    .converter-card {
+        padding: 1.5rem; 
+        width: 100%;
+        border-radius: 16px;   
+    }
+
+    header h2 {
+        font-size: 1.5rem;  
+    }
+ 
+    .conversion-controls {
+        flex-direction: column;
+        align-items: stretch;  
+        gap: 0.5rem;
+    }
+
+  
+    .swap-container {
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem 0;
+        margin: -10px 0;  
+        z-index: 2;  
+    }
+
+    .swap-btn {
+        transform: rotate(90deg);  
+    }
+
+    .swap-btn:hover {
+        transform: rotate(90deg) scale(1.1);
+    }
+ 
+    .amount-field input, 
+    .convert-button {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .msg {
+        font-size: 1.2rem;  
+    }
+}  

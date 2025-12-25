@@ -7,7 +7,7 @@ const countryList = {
   CNY: "CN",
   CZK: "CZ",
   DKK: "DK",
-  EUR: "EU", // Europe
+  EUR: "EU",  
   GBP: "GB",
   HKD: "HK",
   HRK: "HR",
