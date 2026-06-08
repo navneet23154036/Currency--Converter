@@ -1,5 +1,6 @@
   
-const BASE_URL = "https://api.frankfurter.app/latest";
+//const BASE_URL = "https://api.frankfurter.app/latest";
+const BASE_URL = "https://api.frankfurter.dev/v1/latest";
  
 const dropdowns = document.querySelectorAll(".custom-select select");
 const btn = document.querySelector(".convert-button");
